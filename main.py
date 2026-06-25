@@ -27,11 +27,17 @@ def validate_user_input(input_data):
             print(f"  - {error['loc'][0]}: {error['msg']}")
         return None
     
-input_data = {
+json_data = '''
+{
     "name": "Joe User",
     "email": "joe.user@example.com",
-    "query": "I forgot my password."
+    "query": "I bought a keyboard and mouse and was overcharged.",
+    "order_id": 12345,
+    "purchase_date": "2025-12-31"
 }
+'''
+input_data = json.loads(json_data)
+print("Parsed JSON:", input_data)
 user_input = validate_user_input(input_data=input_data)
 
 
